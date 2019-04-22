@@ -4,13 +4,27 @@
     <meta charset="UTF-8">
     <title>Memory</title>
 </head>
+<style>
+    h1 {
+    color: blue;
+    font-family: verdana;
+    font-size: 300%;
+    text-align: center;
+    }
+    body {
+    background-color: lightblue;
+    }
+</style>
 <body>
 <h1>Memory</h1>
-<form action = '/clickedCard'>
+<form action = '/clickedTile'>
     % i = 0
-    % for card in allCards:
+    % for tile in allTiles:
 
-    <button name="selectedButton" value="{{i}}" style="height:200px;width:200px; background-color: {{card.color if card.faceUp else 'black'}}">{{card.color}}</button>
+    <button name="selectedButton"
+            value="{{i}}"
+            style="height:215px;width:215px;
+            background-color: {{tile.color if tile.faceUp else 'black'}}">{{tile.color}}</button>
     % i += 1
     % end
 </form>

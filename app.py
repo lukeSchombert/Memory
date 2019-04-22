@@ -1,5 +1,6 @@
 from bottle import route, run, template, static_file, get, post, request
-from Tile import cards
+from Tile import tiles
+
 
 
 @route('/static/index.html')
@@ -9,17 +10,15 @@ def server_static(filename):
 
 @get('/')
 def index():
-    return template('index.html', allCards=cards)
+    return template('index.html', allTiles=tiles)
 
 
-@get('/clickedCard')
-def clickedCard():
+@get('/clickedTile')
+def clickedTile():
     index = request.query.selectedButton
     index = int(index)
-    cards[index].faceUp = True
-    return template('index.html', allCards=cards)
+    tiles[index].faceUp = True
+    return template('index.html', allTiles=tiles)
 
 
 run(host='localhost', port=8080, debug=True, reloader=True)
-
-
